@@ -4,11 +4,10 @@ feature 'user can login' do
   context 'successfully' do
     before do
       visit root_path
-      binding.pry
       click_on 'Login'
-      fill_in 'Username', with: user.username
-      fill_in 'password'
-      click_on 'log in'
+      fill_in 'Email', with: user1.email
+      fill_in 'Password', with: user1.password
+      click_on 'Log in'
     end 
     
     it 'displays "Write Article" button when in root_path' do
@@ -16,7 +15,7 @@ feature 'user can login' do
     end
 
     it 'displays Edit Article button when in article page' do
-      click_on "MyArticle"
+      click_on test_article.title
       expect(page).to have_content 'Edit Article'
     end
   end
