@@ -1,7 +1,7 @@
 feature 'Visitor can edit articles' do
-  let(:test_a) { FactoryBot.create(:article, title: 'This is a bad title', content: 'Could do better') }
+  let(:test_article) { FactoryBot.create(:article, title: 'This is a bad title', content: 'Could do better') }
   before do
-    visit article_path(test_a)
+    visit article_path(test_article)
     click_on 'Edit Article'
     fill_in 'Title', with: 'This is a better title'
     click_on 'Update Article'
